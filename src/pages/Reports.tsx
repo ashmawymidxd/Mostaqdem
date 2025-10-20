@@ -160,8 +160,8 @@ const Reports = () => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground mb-1">نسبة الموافقة</p>
-                <p className="text-3xl font-bold text-success">84%</p>
+                <p className="text-sm text-muted-foreground mb-1">طلبات هذا الشهر</p>
+                <p className="text-3xl font-bold text-success">33</p>
               </div>
               <TrendingUp className="w-10 h-10 text-success opacity-20" />
             </div>
@@ -171,8 +171,8 @@ const Reports = () => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground mb-1">نسبة الرفض</p>
-                <p className="text-3xl font-bold text-destructive">16%</p>
+                <p className="text-sm text-muted-foreground mb-1">طلبات سوف تنتهي خلال شهر</p>
+                <p className="text-3xl font-bold text-destructive">124</p>
               </div>
               <FileText className="w-10 h-10 text-destructive opacity-20" />
             </div>
@@ -183,7 +183,7 @@ const Reports = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground mb-1">إجمالي الطلبات</p>
-                <p className="text-3xl font-bold text-primary">521</p>
+                <p className="text-3xl font-bold text-primary">167</p>
               </div>
               <Users className="w-10 h-10 text-primary opacity-20" />
             </div>

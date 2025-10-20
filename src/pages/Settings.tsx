@@ -45,10 +45,10 @@ const Settings = () => {
       </div>
 
       <Tabs defaultValue="general" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-4 lg:w-[600px]">
+        <TabsList className="grid w-full grid-cols-3 lg:w-[600px]">
           <TabsTrigger value="general">عام</TabsTrigger>
           <TabsTrigger value="notifications">الإشعارات</TabsTrigger>
-          <TabsTrigger value="security">الأمان</TabsTrigger>
+          {/* <TabsTrigger value="security">الأمان</TabsTrigger> */}
           <TabsTrigger value="permissions">الصلاحيات</TabsTrigger>
         </TabsList>
 

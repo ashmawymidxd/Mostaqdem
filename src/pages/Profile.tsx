@@ -122,9 +122,9 @@ const Profile = () => {
         <Card className="lg:col-span-2">
           <Tabs defaultValue="info" className="w-full">
             <CardHeader>
-              <TabsList className="grid w-full grid-cols-3">
+              <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="info">المعلومات الشخصية</TabsTrigger>
-                <TabsTrigger value="security">الأمان</TabsTrigger>
+                {/* <TabsTrigger value="security">الأمان</TabsTrigger> */}
                 <TabsTrigger value="activity">سجل النشاط</TabsTrigger>
               </TabsList>
             </CardHeader>

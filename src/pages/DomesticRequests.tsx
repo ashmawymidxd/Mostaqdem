@@ -35,6 +35,7 @@ const DomesticRequests = () => {
       profession: "سائق خاص",
       status: "جديد",
       date: "2024-01-15",
+      employee: "احمد العتيدي",
       salary: "2000",
     },
     {
@@ -45,6 +46,7 @@ const DomesticRequests = () => {
       profession: "طباخ",
       status: "موافق عليه",
       date: "2024-01-13",
+      employee: "احمد العتيدي",
       salary: "1800",
     },
     {
@@ -55,6 +57,7 @@ const DomesticRequests = () => {
       profession: "بستاني",
       status: "قيد المراجعة",
       date: "2024-01-11",
+      employee: "احمد العتيدي",
       salary: "1400",
     },
   ];
@@ -62,12 +65,18 @@ const DomesticRequests = () => {
   const getStatusBadge = (status: string) => {
     const variants: Record<
       string,
-      { variant: "default" | "secondary" | "destructive" | "outline"; className?: string }
+      {
+        variant: "default" | "secondary" | "destructive" | "outline";
+        className?: string;
+      }
     > = {
-      "جديد": { variant: "default" },
+      جديد: { variant: "default" },
       "قيد المراجعة": { variant: "secondary" },
-      "موافق عليه": { variant: "outline", className: "bg-success/10 text-success border-success" },
-      "مرفوض": { variant: "destructive" },
+      "موافق عليه": {
+        variant: "outline",
+        className: "bg-success/10 text-success border-success",
+      },
+      مرفوض: { variant: "destructive" },
     };
     const config = variants[status] || { variant: "default" };
     return (
@@ -140,8 +149,9 @@ const DomesticRequests = () => {
                 <TableHead className="text-right">اسم العامل</TableHead>
                 <TableHead className="text-right">الجنسية</TableHead>
                 <TableHead className="text-right">المهنة</TableHead>
-                <TableHead className="text-right">الراتب</TableHead>
+                <TableHead className="text-right">سعر الخدمة</TableHead>
                 <TableHead className="text-right">الحالة</TableHead>
+                <TableHead className="text-right">الموظف</TableHead>
                 <TableHead className="text-right">التاريخ</TableHead>
                 <TableHead className="text-right">الإجراءات</TableHead>
               </TableRow>
@@ -149,8 +159,12 @@ const DomesticRequests = () => {
             <TableBody>
               {requests.map((request) => (
                 <TableRow key={request.id} className="hover:bg-muted/50">
-                  <TableCell className="font-mono font-bold">#{request.id}</TableCell>
-                  <TableCell className="font-medium">{request.employer}</TableCell>
+                  <TableCell className="font-mono font-bold">
+                    #{request.id}
+                  </TableCell>
+                  <TableCell className="font-medium">
+                    {request.employer}
+                  </TableCell>
                   <TableCell>{request.workerName}</TableCell>
                   <TableCell>{request.workerNationality}</TableCell>
                   <TableCell>{request.profession}</TableCell>
@@ -158,7 +172,10 @@ const DomesticRequests = () => {
                     {request.salary} ريال
                   </TableCell>
                   <TableCell>{getStatusBadge(request.status)}</TableCell>
-                  <TableCell className="text-muted-foreground">{request.date}</TableCell>
+                  <TableCell>{request.employee}</TableCell>
+                  <TableCell className="text-muted-foreground">
+                    {request.date}
+                  </TableCell>
                   <TableCell>
                     <Button
                       variant="ghost"
