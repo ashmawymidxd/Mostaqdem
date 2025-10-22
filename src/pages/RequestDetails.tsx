@@ -102,19 +102,19 @@ const RequestDetails = () => {
         name: "عقد العمل",
         status: "مرفوع",
         price: 150,
-        currentStatus: "البصمة",
+        currentStatus: "جديد",
       },
       {
         name: "صورة الهوية",
         status: "مرفوع",
         price: 50,
-        currentStatus: "لائق للعمل",
+        currentStatus: "موافقة وزارة القوى البشرية",
       },
       {
         name: "السيرة الذاتية",
         status: "مرفوع",
         price: 100,
-        currentStatus: "تسدا جاهز",
+        currentStatus: "تم اختيار العامل",
       },
       {
         name: "الشهادات",
@@ -517,10 +517,11 @@ const RequestDetails = () => {
                           {doc.status}
                         </p>
                       </div>
+                      <div className="bg-secondary/20 text-green-700 px-3 py-1 rounded-full text-sm">
+                        <span>{doc.currentStatus}</span>
+                      </div>
                     </div>
-                    <div className="bg-secondary/20 text-green-700 px-3 py-1 rounded-full text-sm">
-                      <span>{doc.currentStatus}</span>
-                    </div>
+
                     <div className="flex items-center gap-3">
                       <span className="font-semibold text-primary">
                         {doc.price} ر.س
