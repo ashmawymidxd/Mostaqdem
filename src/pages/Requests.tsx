@@ -37,9 +37,9 @@ const Requests = () => {
       type: "استقدام عائلي",
       profession: "سائق خاص",
       status: "جديد",
-      date: "2024-01-15",
-      employee:"احمد حسن",
-      salary: "2000",
+      requestDate: "منز يومين",
+      statusDate: "منز يوم",
+      employee: "احمد حسن",
     },
     {
       id: "12344",
@@ -50,9 +50,9 @@ const Requests = () => {
       type: "استقدام مهني",
       profession: "عاملة منزلية",
       status: "قيد المراجعة",
-      date: "2024-01-14",
-      employee:"احمد العتيدي",
-      salary: "1500",
+      requestDate: "منز ساعة",
+      statusDate: "منز دقيقة",
+      employee: "احمد العتيدي",
     },
     {
       id: "12343",
@@ -63,9 +63,9 @@ const Requests = () => {
       type: "استقدام عائلي",
       profession: "طباخ",
       status: "موافق عليه",
-      date: "2024-01-13",
-      employee:"احمد مالك",
-      salary: "1800",
+      requestDate: "منز اسبوع",
+      statusDate: "منز يوم",
+      employee: "احمد مالك",
     },
     {
       id: "12342",
@@ -76,9 +76,9 @@ const Requests = () => {
       type: "استقدام مهني",
       profession: "مربية أطفال",
       status: "مرفوض",
-      date: "2024-01-12",
-      employee:"محمد حسن",
-      salary: "1600",
+      requestDate: "منز شهر",
+      statusDate: "منز اسبوعين",
+      employee: "محمد حسن",
     },
     {
       id: "12341",
@@ -89,21 +89,27 @@ const Requests = () => {
       type: "استقدام عائلي",
       profession: "بستاني",
       status: "قيد المراجعة",
-      date: "2024-01-11",
-      employee:"حمادة حسن",
-      salary: "1400",
+      requestDate: "منز شهرين",
+      statusDate: "منز شهر",
+      employee: "حمادة حسن",
     },
   ];
 
   const getStatusBadge = (status: string) => {
     const variants: Record<
       string,
-      { variant: "default" | "secondary" | "destructive" | "outline"; className?: string }
+      {
+        variant: "default" | "secondary" | "destructive" | "outline";
+        className?: string;
+      }
     > = {
-      "جديد": { variant: "default" },
+      جديد: { variant: "default" },
       "قيد المراجعة": { variant: "secondary" },
-      "موافق عليه": { variant: "outline", className: "bg-success/10 text-success border-success" },
-      "مرفوض": { variant: "destructive" },
+      "موافق عليه": {
+        variant: "outline",
+        className: "bg-success/10 text-success border-success",
+      },
+      مرفوض: { variant: "destructive" },
     };
     const config = variants[status] || { variant: "default" };
     return (
@@ -187,28 +193,34 @@ const Requests = () => {
                 <TableHead className="text-right">الجنسية</TableHead>
                 <TableHead className="text-right">المهنة</TableHead>
                 <TableHead className="text-right">نوع الطلب</TableHead>
-                <TableHead className="text-right">سعر الخدمة</TableHead>
                 <TableHead className="text-right">الحالة</TableHead>
                 <TableHead className="text-right">الموظف</TableHead>
-                <TableHead className="text-right">التاريخ</TableHead>
+                <TableHead className="text-right">تاريخ الطلب</TableHead>
+                <TableHead className="text-right">اخر تعديل</TableHead>
                 <TableHead className="text-right">الإجراءات</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {requests.map((request) => (
                 <TableRow key={request.id} className="hover:bg-muted/50">
-                  <TableCell className="font-mono font-bold">#{request.id}</TableCell>
-                  <TableCell className="font-medium">{request.employer}</TableCell>
+                  <TableCell className="font-mono font-bold">
+                    #{request.id}
+                  </TableCell>
+                  <TableCell className="font-medium">
+                    {request.employer}
+                  </TableCell>
                   <TableCell>{request.workerName}</TableCell>
                   <TableCell>{request.workerNationality}</TableCell>
                   <TableCell>{request.profession}</TableCell>
                   <TableCell>{request.type}</TableCell>
-                  <TableCell className="font-semibold">
-                    {request.salary} ريال
-                  </TableCell>
                   <TableCell>{getStatusBadge(request.status)}</TableCell>
                   <TableCell>{request.employee}</TableCell>
-                  <TableCell className="text-muted-foreground">{request.date}</TableCell>
+                  <TableCell className="text-muted-foreground">
+                    {request.requestDate}
+                  </TableCell>
+                  <TableCell className="text-muted-foreground">
+                    {request.statusDate}
+                  </TableCell>
                   <TableCell>
                     <Button
                       variant="ghost"

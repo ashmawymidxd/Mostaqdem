@@ -15,6 +15,7 @@ import {
   ChevronDown,
   ChevronUp,
   FolderPlus,
+  Receipt,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -34,6 +35,7 @@ const menuItems = [
   { title: "العمال", icon: Briefcase, path: "/workers" },
   { title: "الموظفين", icon: UserCog, path: "/employees" },
   { title: "مكاتب الاستقدام", icon: Building2, path: "/offices" },
+  { title: "الفواتير", icon: Receipt, path: "/invoices" },
   { 
     title: "إضافات مهمة", 
     icon: FolderPlus, 

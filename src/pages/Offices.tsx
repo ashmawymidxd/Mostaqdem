@@ -43,6 +43,7 @@ const Offices = () => {
       manager: "أحمد عبدالله",
       managerInstead: "أحمد عبدالله",
       status: "نشط",
+      requests: "5 طلبات",
     },
     {
       id: "2",
@@ -57,6 +58,7 @@ const Offices = () => {
       manager: "محمد سعود",
       managerInstead: "محمد سعود",
       status: "نشط",
+      requests: "0 طلبات",
     },
     {
       id: "3",
@@ -71,6 +73,7 @@ const Offices = () => {
       manager: "خالد أحمد",
       managerInstead: "خالد أحمد",
       status: "منتهي الترخيص",
+      requests: "3 طلبات",
     },
     {
       id: "4",
@@ -85,6 +88,7 @@ const Offices = () => {
       manager: "عبدالرحمن فهد",
       managerInstead: "عبدالرحمن فهد",
       status: "نشط",
+      requests: "12 طلبات",
     },
   ];
 
@@ -340,6 +344,15 @@ const Offices = () => {
                 <div>
                   <p className="text-muted-foreground">البريد الإلكتروني</p>
                   <p className="text-xs">{office.email}</p>
+                </div>
+                {/* requests */}
+                <div>
+                  <p className="text-sm text-muted-foreground">
+                    الطلبات الواردة:{" "}
+                    <span className="bg-gray-200 rounded-full px-2 py-1">
+                      {office.requests}
+                    </span>
+                  </p>
                 </div>
               </div>
 

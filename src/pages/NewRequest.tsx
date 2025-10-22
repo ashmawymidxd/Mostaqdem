@@ -37,6 +37,12 @@ const NewRequest = () => {
     { id: "3", name: "عبدالله خالد المطيري", department: "الموارد البشرية" },
   ];
 
+  const offices = [
+    { id: "1", name: "مكتب الرياض المركزي", location: "الرياض - حي النخيل", phone: "0112345678" },
+    { id: "2", name: "مكتب جدة الرئيسي", location: "جدة - حي الزهراء", phone: "0122345678" },
+    { id: "3", name: "مكتب الدمام", location: "الدمام - حي الفيصلية", phone: "0132345678" },
+  ];
+
   return (
     <div className="space-y-6">
       {/* Page Header */}
@@ -68,14 +74,14 @@ const NewRequest = () => {
                     <SelectValue placeholder="اختر نوع الطلب" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="family">استقدام عائلي</SelectItem>
+                    <SelectItem value="family">استقدام منزلي</SelectItem>
                     <SelectItem value="professional">استقدام مهني</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="salary">سعر الخدمة المقترح (ريال) *</Label>
-                <Input id="salary" type="number" placeholder="مثال: 2000" />
+                <Label htmlFor="mosaned">رقم مساند</Label>
+                <Input id="mosaned" type="number" placeholder="3535436363" />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="contract-duration">مدة العقد (بالأشهر) *</Label>
@@ -156,6 +162,42 @@ const NewRequest = () => {
             </div>
           </CardContent>
         </Card>
+
+        {/* اختيار المكتب (للطلبات المنزلية فقط) */}
+        {requestType === "family" && (
+          <Card>
+            <CardHeader>
+              <CardTitle>بيانات المكتب</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="office">اختر المكتب *</Label>
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="اختر المكتب من القائمة" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {offices.map((office) => (
+                      <SelectItem key={office.id} value={office.id}>
+                        {office.name} - {office.location}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="text-sm text-muted-foreground">
+                إذا لم يكن المكتب مسجلاً في النظام، يمكنك إضافته من صفحة{" "}
+                <Button
+                  variant="link"
+                  className="p-0 h-auto"
+                  onClick={() => navigate("/offices")}
+                >
+                  إدارة المكاتب
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         {/* اختيار الموظف المسؤول */}
         <Card>

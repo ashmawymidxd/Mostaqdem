@@ -14,6 +14,7 @@ import Users from "./pages/Users";
 import Workers from "./pages/Workers";
 import Employees from "./pages/Employees";
 import Offices from "./pages/Offices";
+import Invoices from "./pages/Invoices";
 import Professions from "./pages/Professions";
 import Countries from "./pages/Countries";
 import Cities from "./pages/Cities";
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/workers" element={<Workers />} />
             <Route path="/employees" element={<Employees />} />
             <Route path="/offices" element={<Offices />} />
+            <Route path="/invoices" element={<Invoices />} />
             <Route path="/professions" element={<Professions />} />
             <Route path="/countries" element={<Countries />} />
             <Route path="/cities" element={<Cities />} />

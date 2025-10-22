@@ -19,6 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useNavigate } from "react-router-dom";
 import {
   Dialog,
   DialogContent,
@@ -29,10 +30,19 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import { Search, Plus, Edit, Ban, CheckCircle2, Users2 } from "lucide-react";
+import {
+  Search,
+  Eye,
+  Plus,
+  Edit,
+  Ban,
+  CheckCircle2,
+  Users2,
+} from "lucide-react";
 import { toast } from "sonner";
 
 const Users = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -49,20 +59,71 @@ const Users = () => {
       requestsCount: 5,
       status: "نشط",
       joinDate: "2024-01-10",
-      workers: [
+      requests: [
         {
-          id: "W-001",
-          name: "أحمد علي",
-          nationality: "الفلبين",
-          profession: "سائق",
-          requestId: "REQ-001",
+          id: "12345",
+          employer: "محمد أحمد السعيد",
+          nationality: "سعودي",
+          workerName: "أحمد محمود",
+          workerNationality: "مصري",
+          type: "استقدام عائلي",
+          profession: "سائق خاص",
+          status: "جديد",
+          requestDate: "منز يومين",
+          statusDate: "منز يوم",
+          employee: "احمد حسن",
         },
         {
-          id: "W-003",
-          name: "محمد حسن",
-          nationality: "إندونيسيا",
+          id: "12344",
+          employer: "فاطمة علي الزهراني",
+          nationality: "سعودي",
+          workerName: "فاطمة أحمد",
+          workerNationality: "فلبيني",
+          type: "استقدام مهني",
+          profession: "عاملة منزلية",
+          status: "قيد المراجعة",
+          requestDate: "منز ساعة",
+          statusDate: "منز دقيقة",
+          employee: "احمد العتيدي",
+        },
+        {
+          id: "12343",
+          employer: "عبدالله خالد المطيري",
+          nationality: "سعودي",
+          workerName: "راجا سينغ",
+          workerNationality: "هندي",
+          type: "استقدام عائلي",
           profession: "طباخ",
-          requestId: "REQ-005",
+          status: "موافق عليه",
+          requestDate: "منز اسبوع",
+          statusDate: "منز يوم",
+          employee: "احمد مالك",
+        },
+        {
+          id: "12342",
+          employer: "نورة سعد القحطاني",
+          nationality: "سعودي",
+          workerName: "ماريا سانتوس",
+          workerNationality: "فلبيني",
+          type: "استقدام مهني",
+          profession: "مربية أطفال",
+          status: "مرفوض",
+          requestDate: "منز شهر",
+          statusDate: "منز اسبوعين",
+          employee: "محمد حسن",
+        },
+        {
+          id: "12341",
+          employer: "سعود فهد العتيبي",
+          nationality: "سعودي",
+          workerName: "محمد حسن",
+          workerNationality: "بنغلاديشي",
+          type: "استقدام عائلي",
+          profession: "بستاني",
+          status: "قيد المراجعة",
+          requestDate: "منز شهرين",
+          statusDate: "منز شهر",
+          employee: "حمادة حسن",
         },
       ],
     },
@@ -77,13 +138,45 @@ const Users = () => {
       requestsCount: 3,
       status: "نشط",
       joinDate: "2024-01-12",
-      workers: [
+      requests: [
         {
-          id: "W-005",
-          name: "فاطمة أحمد",
-          nationality: "الفلبين",
-          profession: "خادمة منزلية",
-          requestId: "REQ-008",
+          id: "12345",
+          employer: "محمد أحمد السعيد",
+          nationality: "سعودي",
+          workerName: "أحمد محمود",
+          workerNationality: "مصري",
+          type: "استقدام عائلي",
+          profession: "سائق خاص",
+          status: "جديد",
+          requestDate: "منز يومين",
+          statusDate: "منز يوم",
+          employee: "احمد حسن",
+        },
+        {
+          id: "12344",
+          employer: "فاطمة علي الزهراني",
+          nationality: "سعودي",
+          workerName: "فاطمة أحمد",
+          workerNationality: "فلبيني",
+          type: "استقدام مهني",
+          profession: "عاملة منزلية",
+          status: "قيد المراجعة",
+          requestDate: "منز ساعة",
+          statusDate: "منز دقيقة",
+          employee: "احمد العتيدي",
+        },
+        {
+          id: "12343",
+          employer: "عبدالله خالد المطيري",
+          nationality: "سعودي",
+          workerName: "راجا سينغ",
+          workerNationality: "هندي",
+          type: "استقدام عائلي",
+          profession: "طباخ",
+          status: "موافق عليه",
+          requestDate: "منز اسبوع",
+          statusDate: "منز يوم",
+          employee: "احمد مالك",
         },
       ],
     },
@@ -98,27 +191,45 @@ const Users = () => {
       requestsCount: 8,
       status: "موقوف",
       joinDate: "2023-12-05",
-      workers: [
+      requests: [
         {
-          id: "W-002",
-          name: "علي محمد",
-          nationality: "بنغلاديش",
-          profession: "مهندس",
-          requestId: "REQ-003",
+          id: "12343",
+          employer: "عبدالله خالد المطيري",
+          nationality: "سعودي",
+          workerName: "راجا سينغ",
+          workerNationality: "هندي",
+          type: "استقدام عائلي",
+          profession: "طباخ",
+          status: "موافق عليه",
+          requestDate: "منز اسبوع",
+          statusDate: "منز يوم",
+          employee: "احمد مالك",
         },
         {
-          id: "W-007",
-          name: "سارة علي",
-          nationality: "الهند",
-          profession: "ممرضة",
-          requestId: "REQ-012",
+          id: "12342",
+          employer: "نورة سعد القحطاني",
+          nationality: "سعودي",
+          workerName: "ماريا سانتوس",
+          workerNationality: "فلبيني",
+          type: "استقدام مهني",
+          profession: "مربية أطفال",
+          status: "مرفوض",
+          requestDate: "منز شهر",
+          statusDate: "منز اسبوعين",
+          employee: "محمد حسن",
         },
         {
-          id: "W-009",
-          name: "خالد أحمد",
-          nationality: "باكستان",
-          profession: "كهربائي",
-          requestId: "REQ-015",
+          id: "12341",
+          employer: "سعود فهد العتيبي",
+          nationality: "سعودي",
+          workerName: "محمد حسن",
+          workerNationality: "بنغلاديشي",
+          type: "استقدام عائلي",
+          profession: "بستاني",
+          status: "قيد المراجعة",
+          requestDate: "منز شهرين",
+          statusDate: "منز شهر",
+          employee: "حمادة حسن",
         },
       ],
     },
@@ -133,13 +244,71 @@ const Users = () => {
       requestsCount: 2,
       status: "نشط",
       joinDate: "2024-01-08",
-      workers: [
+      requests: [
         {
-          id: "W-010",
-          name: "نور الدين",
-          nationality: "إندونيسيا",
+          id: "12345",
+          employer: "محمد أحمد السعيد",
+          nationality: "سعودي",
+          workerName: "أحمد محمود",
+          workerNationality: "مصري",
+          type: "استقدام عائلي",
+          profession: "سائق خاص",
+          status: "جديد",
+          requestDate: "منز يومين",
+          statusDate: "منز يوم",
+          employee: "احمد حسن",
+        },
+        {
+          id: "12344",
+          employer: "فاطمة علي الزهراني",
+          nationality: "سعودي",
+          workerName: "فاطمة أحمد",
+          workerNationality: "فلبيني",
+          type: "استقدام مهني",
+          profession: "عاملة منزلية",
+          status: "قيد المراجعة",
+          requestDate: "منز ساعة",
+          statusDate: "منز دقيقة",
+          employee: "احمد العتيدي",
+        },
+        {
+          id: "12343",
+          employer: "عبدالله خالد المطيري",
+          nationality: "سعودي",
+          workerName: "راجا سينغ",
+          workerNationality: "هندي",
+          type: "استقدام عائلي",
+          profession: "طباخ",
+          status: "موافق عليه",
+          requestDate: "منز اسبوع",
+          statusDate: "منز يوم",
+          employee: "احمد مالك",
+        },
+        {
+          id: "12342",
+          employer: "نورة سعد القحطاني",
+          nationality: "سعودي",
+          workerName: "ماريا سانتوس",
+          workerNationality: "فلبيني",
+          type: "استقدام مهني",
+          profession: "مربية أطفال",
+          status: "مرفوض",
+          requestDate: "منز شهر",
+          statusDate: "منز اسبوعين",
+          employee: "محمد حسن",
+        },
+        {
+          id: "12341",
+          employer: "سعود فهد العتيبي",
+          nationality: "سعودي",
+          workerName: "محمد حسن",
+          workerNationality: "بنغلاديشي",
+          type: "استقدام عائلي",
           profession: "بستاني",
-          requestId: "REQ-018",
+          status: "قيد المراجعة",
+          requestDate: "منز شهرين",
+          statusDate: "منز شهر",
+          employee: "حمادة حسن",
         },
       ],
     },
@@ -365,13 +534,13 @@ const Users = () => {
                       <DialogTrigger asChild>
                         <Button variant="outline" size="sm" className="gap-2">
                           <Users2 className="w-4 h-4" />
-                          {user.workers.length} عامل
+                          {user.requests.length} طلب
                         </Button>
                       </DialogTrigger>
-                      <DialogContent className="max-w-3xl">
+                      <DialogContent className="max-w-6xl">
                         <DialogHeader>
                           <DialogTitle>
-                            العمال المستقدمين لـ {user.name}
+                            طلبات المستقدمين لـ {user.name}
                           </DialogTitle>
                         </DialogHeader>
                         <div className="mt-4">
@@ -379,10 +548,13 @@ const Users = () => {
                             <TableHeader>
                               <TableRow>
                                 <TableHead className="text-right">
-                                  رقم العامل
+                                  رقم الطلب
                                 </TableHead>
                                 <TableHead className="text-right">
-                                  الاسم
+                                  صاحب العمل
+                                </TableHead>
+                                <TableHead className="text-right">
+                                  اسم العامل
                                 </TableHead>
                                 <TableHead className="text-right">
                                   الجنسية
@@ -391,27 +563,65 @@ const Users = () => {
                                   المهنة
                                 </TableHead>
                                 <TableHead className="text-right">
-                                  رقم الطلب
+                                  نوع الطلب
+                                </TableHead>
+                                <TableHead className="text-right">
+                                  الحالة
+                                </TableHead>
+                                <TableHead className="text-right">
+                                  الموظف
+                                </TableHead>
+                                <TableHead className="text-right">
+                                  تاريخ الطلب
+                                </TableHead>
+                                <TableHead className="text-right">
+                                  اخر تعديل
+                                </TableHead>
+                                <TableHead className="text-right">
+                                  الإجراءات
                                 </TableHead>
                               </TableRow>
                             </TableHeader>
                             <TableBody>
-                              {user.workers.map((worker) => (
-                                <TableRow key={worker.id}>
+                              {user.requests.map((request) => (
+                                <TableRow
+                                  key={request.id}
+                                  className="hover:bg-muted/50"
+                                >
                                   <TableCell className="font-mono font-bold">
-                                    {worker.id}
+                                    #{request.id}
                                   </TableCell>
                                   <TableCell className="font-medium">
-                                    {worker.name}
+                                    {request.employer}
                                   </TableCell>
-                                  <TableCell>{worker.nationality}</TableCell>
+                                  <TableCell>{request.workerName}</TableCell>
                                   <TableCell>
-                                    <Badge variant="outline">
-                                      {worker.profession}
-                                    </Badge>
+                                    {request.workerNationality}
                                   </TableCell>
-                                  <TableCell className="font-mono">
-                                    {worker.requestId}
+                                  <TableCell>{request.profession}</TableCell>
+                                  <TableCell>{request.type}</TableCell>
+                                  <TableCell>
+                                    {getStatusBadge(request.status)}
+                                  </TableCell>
+                                  <TableCell>{request.employee}</TableCell>
+                                  <TableCell className="text-muted-foreground">
+                                    {request.requestDate}
+                                  </TableCell>
+                                  <TableCell className="text-muted-foreground">
+                                    {request.statusDate}
+                                  </TableCell>
+                                  <TableCell>
+                                    <Button
+                                      variant="ghost"
+                                      size="sm"
+                                      className="gap-2"
+                                      onClick={() =>
+                                        navigate(`/requests/${request.id}`)
+                                      }
+                                    >
+                                      <Eye className="w-4 h-4" />
+                                      عرض
+                                    </Button>
                                   </TableCell>
                                 </TableRow>
                               ))}
@@ -419,7 +629,7 @@ const Users = () => {
                           </Table>
                         </div>
                       </DialogContent>
-                    </Dialog>                                    
+                    </Dialog>
                   </TableCell>
                   <TableCell className="text-muted-foreground">
                     {user.joinDate}

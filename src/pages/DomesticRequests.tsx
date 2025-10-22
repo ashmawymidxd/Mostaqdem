@@ -34,9 +34,11 @@ const DomesticRequests = () => {
       workerNationality: "مصري",
       profession: "سائق خاص",
       status: "جديد",
-      date: "2024-01-15",
+      requestDate: "منز ساعة",
+      statusDate: "منز دقيقة",
+      office: "مكتب البركة ",
+      mosandeNumber: "25463463526",
       employee: "احمد العتيدي",
-      salary: "2000",
     },
     {
       id: "12343",
@@ -45,9 +47,11 @@ const DomesticRequests = () => {
       workerNationality: "هندي",
       profession: "طباخ",
       status: "موافق عليه",
-      date: "2024-01-13",
+      requestDate: "منز ساعة",
+      statusDate: "منز دقيقة",
+      office: "مكتب الرحمة ",
+      mosandeNumber: "3876967847",
       employee: "احمد العتيدي",
-      salary: "1800",
     },
     {
       id: "12341",
@@ -56,9 +60,11 @@ const DomesticRequests = () => {
       workerNationality: "بنغلاديشي",
       profession: "بستاني",
       status: "قيد المراجعة",
-      date: "2024-01-11",
+      requestDate: "منز ساعة",
+      statusDate: "منز دقيقة",
+      office: "مكتب المدينة ",
+      mosandeNumber: "3124524654",
       employee: "احمد العتيدي",
-      salary: "1400",
     },
   ];
 
@@ -149,10 +155,12 @@ const DomesticRequests = () => {
                 <TableHead className="text-right">اسم العامل</TableHead>
                 <TableHead className="text-right">الجنسية</TableHead>
                 <TableHead className="text-right">المهنة</TableHead>
-                <TableHead className="text-right">سعر الخدمة</TableHead>
                 <TableHead className="text-right">الحالة</TableHead>
                 <TableHead className="text-right">الموظف</TableHead>
-                <TableHead className="text-right">التاريخ</TableHead>
+                <TableHead className="text-right">المكتب</TableHead>
+                <TableHead className="text-right">رقم مساند</TableHead>
+                <TableHead className="text-right">تاريخ الطلب</TableHead>
+                <TableHead className="text-right">اخر تعديل</TableHead>
                 <TableHead className="text-right">الإجراءات</TableHead>
               </TableRow>
             </TableHeader>
@@ -168,13 +176,15 @@ const DomesticRequests = () => {
                   <TableCell>{request.workerName}</TableCell>
                   <TableCell>{request.workerNationality}</TableCell>
                   <TableCell>{request.profession}</TableCell>
-                  <TableCell className="font-semibold">
-                    {request.salary} ريال
-                  </TableCell>
                   <TableCell>{getStatusBadge(request.status)}</TableCell>
                   <TableCell>{request.employee}</TableCell>
+                  <TableCell>{request.office}</TableCell>
+                  <TableCell>{request.mosandeNumber}</TableCell>
                   <TableCell className="text-muted-foreground">
-                    {request.date}
+                    {request.requestDate}
+                  </TableCell>
+                  <TableCell className="text-muted-foreground">
+                    {request.statusDate}
                   </TableCell>
                   <TableCell>
                     <Button

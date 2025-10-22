@@ -34,9 +34,9 @@ const ProfessionalRequests = () => {
       workerNationality: "فلبيني",
       profession: "عاملة منزلية",
       status: "قيد المراجعة",
-      date: "2024-01-14",
+      requestDate: "منز ساعة",
+      statusDate: "منز دقيقة",
       employee: "احمد حسن",
-      salary: "1500",
     },
     {
       id: "12342",
@@ -45,9 +45,9 @@ const ProfessionalRequests = () => {
       workerNationality: "فلبيني",
       profession: "مربية أطفال",
       status: "مرفوض",
-      date: "2024-01-12",
-      employee: "احمد حسن",
-      salary: "1600",
+      requestDate: "منز ساعة",
+      statusDate: "منز دقيقة",
+      employee: "احمد عادل",
     },
   ];
   const getStatusBadge = (status: string) => {
@@ -137,10 +137,10 @@ const ProfessionalRequests = () => {
                 <TableHead className="text-right">اسم العامل</TableHead>
                 <TableHead className="text-right">الجنسية</TableHead>
                 <TableHead className="text-right">المهنة</TableHead>
-                <TableHead className="text-right">سعر الخدمة</TableHead>
                 <TableHead className="text-right">الحالة</TableHead>
                 <TableHead className="text-right">الموظف</TableHead>
-                <TableHead className="text-right">التاريخ</TableHead>
+                <TableHead className="text-right">تاريخ الطلب</TableHead>
+                <TableHead className="text-right">اخر تعديل</TableHead>
                 <TableHead className="text-right">الإجراءات</TableHead>
               </TableRow>
             </TableHeader>
@@ -156,13 +156,13 @@ const ProfessionalRequests = () => {
                   <TableCell>{request.workerName}</TableCell>
                   <TableCell>{request.workerNationality}</TableCell>
                   <TableCell>{request.profession}</TableCell>
-                  <TableCell className="font-semibold">
-                    {request.salary} ريال
-                  </TableCell>
                   <TableCell>{getStatusBadge(request.status)}</TableCell>
                   <TableCell>{request.employee}</TableCell>
                   <TableCell className="text-muted-foreground">
-                    {request.date}
+                    {request.requestDate}
+                  </TableCell>
+                  <TableCell className="text-muted-foreground">
+                    {request.statusDate}
                   </TableCell>
                   <TableCell>
                     <Button
