@@ -26,8 +26,18 @@ const NewRequest = () => {
   ];
 
   const workers = [
-    { id: "1", name: "أحمد محمود", nationality: "مصري", profession: "سائق خاص" },
-    { id: "2", name: "فاطمة أحمد", nationality: "فلبيني", profession: "عاملة منزلية" },
+    {
+      id: "1",
+      name: "أحمد محمود",
+      nationality: "مصري",
+      profession: "سائق خاص",
+    },
+    {
+      id: "2",
+      name: "فاطمة أحمد",
+      nationality: "فلبيني",
+      profession: "عاملة منزلية",
+    },
     { id: "3", name: "راجا سينغ", nationality: "هندي", profession: "طباخ" },
   ];
 
@@ -38,9 +48,24 @@ const NewRequest = () => {
   ];
 
   const offices = [
-    { id: "1", name: "مكتب الرياض المركزي", location: "الرياض - حي النخيل", phone: "0112345678" },
-    { id: "2", name: "مكتب جدة الرئيسي", location: "جدة - حي الزهراء", phone: "0122345678" },
-    { id: "3", name: "مكتب الدمام", location: "الدمام - حي الفيصلية", phone: "0132345678" },
+    {
+      id: "1",
+      name: "مكتب الرياض المركزي",
+      location: "الرياض - حي النخيل",
+      phone: "0112345678",
+    },
+    {
+      id: "2",
+      name: "مكتب جدة الرئيسي",
+      location: "جدة - حي الزهراء",
+      phone: "0122345678",
+    },
+    {
+      id: "3",
+      name: "مكتب الدمام",
+      location: "الدمام - حي الفيصلية",
+      phone: "0132345678",
+    },
   ];
 
   return (
@@ -53,7 +78,11 @@ const NewRequest = () => {
             قم بملء جميع البيانات المطلوبة لإنشاء طلب استقدام
           </p>
         </div>
-        <Button variant="outline" onClick={() => navigate("/requests")} className="gap-2">
+        <Button
+          variant="outline"
+          onClick={() => navigate("/requests")}
+          className="gap-2"
+        >
           <ArrowRight className="w-4 h-4" />
           العودة للطلبات
         </Button>
@@ -79,13 +108,19 @@ const NewRequest = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="mosaned">رقم مساند</Label>
-                <Input id="mosaned" type="number" placeholder="3535436363" />
-              </div>
+              {requestType === "family" && (
+                <div className="space-y-2">
+                  <Label htmlFor="mosaned">رقم مساند</Label>
+                  <Input id="mosaned" type="number" placeholder="3535436363" />
+                </div>
+              )}
               <div className="space-y-2">
                 <Label htmlFor="contract-duration">مدة العقد (بالأشهر) *</Label>
-                <Input id="contract-duration" type="number" placeholder="مثال: 24" />
+                <Input
+                  id="contract-duration"
+                  type="number"
+                  placeholder="مثال: 24"
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="request-date">تاريخ الطلب *</Label>
