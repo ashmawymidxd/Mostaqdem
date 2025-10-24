@@ -15,6 +15,7 @@ import Workers from "./pages/Workers";
 import Employees from "./pages/Employees";
 import Offices from "./pages/Offices";
 import Invoices from "./pages/Invoices";
+import InvoiceDetails from "./pages/InvoiceDetails";
 import Professions from "./pages/Professions";
 import Countries from "./pages/Countries";
 import Cities from "./pages/Cities";
@@ -40,7 +41,10 @@ const App = () => (
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/requests" element={<Requests />} />
             <Route path="/requests/new" element={<NewRequest />} />
-            <Route path="/requests/professional" element={<ProfessionalRequests />} />
+            <Route
+              path="/requests/professional"
+              element={<ProfessionalRequests />}
+            />
             <Route path="/requests/domestic" element={<DomesticRequests />} />
             <Route path="/requests/:id" element={<RequestDetails />} />
             <Route path="/users" element={<Users />} />
@@ -48,6 +52,7 @@ const App = () => (
             <Route path="/employees" element={<Employees />} />
             <Route path="/offices" element={<Offices />} />
             <Route path="/invoices" element={<Invoices />} />
+            <Route path="/invoices/:id" element={<InvoiceDetails />} />
             <Route path="/professions" element={<Professions />} />
             <Route path="/countries" element={<Countries />} />
             <Route path="/cities" element={<Cities />} />

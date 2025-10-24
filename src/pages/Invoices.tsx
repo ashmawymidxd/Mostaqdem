@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Table,
@@ -25,20 +26,12 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
-import {
-  Search,
-  FileText,
-  Eye,
-  DollarSign,
-  CreditCard,
-  Upload,
-  X,
-} from "lucide-react";
+import { Search, FileText, Eye, DollarSign, CreditCard, X } from "lucide-react";
 import { toast } from "sonner";
 
 const Invoices = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [selectedInvoice, setSelectedInvoice] = useState<string>("");
@@ -322,88 +315,15 @@ const Invoices = () => {
                   </TableCell>
                   <TableCell>
                     <div className="flex gap-2">
-                      <Dialog>
-                        <DialogTrigger asChild>
-                          <Button variant="ghost" size="sm" className="gap-2">
-                            <Eye className="w-4 h-4" />
-                            عرض
-                          </Button>
-                        </DialogTrigger>
-                        <DialogContent className="max-w-2xl">
-                          <DialogHeader>
-                            <DialogTitle>
-                              تفاصيل الفاتورة {invoice.id}
-                            </DialogTitle>
-                          </DialogHeader>
-                          <div className="space-y-4">
-                            <div className="grid grid-cols-2 gap-4">
-                              <div>
-                                <p className="text-sm text-muted-foreground">
-                                  رقم الطلب
-                                </p>
-                                <p className="font-semibold">
-                                  #{invoice.requestId}
-                                </p>
-                              </div>
-                              <div>
-                                <p className="text-sm text-muted-foreground">
-                                  العميل
-                                </p>
-                                <p className="font-semibold">
-                                  {invoice.employer}
-                                </p>
-                              </div>
-                              <div>
-                                <p className="text-sm text-muted-foreground">
-                                  نوع الطلب
-                                </p>
-                                <p className="font-semibold">{invoice.type}</p>
-                              </div>
-                              <div>
-                                <p className="text-sm text-muted-foreground">
-                                  الحالة
-                                </p>
-                                <div className="mt-1">
-                                  {getStatusBadge(invoice.status)}
-                                </div>
-                              </div>
-                            </div>
-                            <div className="border-t pt-4">
-                              <h3 className="font-semibold mb-3">
-                                التفاصيل المالية
-                              </h3>
-                              <div className="space-y-2">
-                                <div className="flex justify-between">
-                                  <span className="text-muted-foreground">
-                                    التكاليف:
-                                  </span>
-                                  <span>{invoice.costs} ريال</span>
-                                </div>
-                                <div className="flex justify-between">
-                                  <span className="text-muted-foreground">
-                                    الربح:
-                                  </span>
-                                  <span className="text-success font-semibold">
-                                    {invoice.profit} ريال
-                                  </span>
-                                </div>
-                                <div className="flex justify-between border-t pt-2">
-                                  <span className="font-semibold">
-                                    المبلغ الإجمالي:
-                                  </span>
-                                  <span className="font-bold text-lg">
-                                    {invoice.totalAmount} ريال
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="flex gap-2 justify-end">
-                              <Button variant="outline">طباعة الفاتورة</Button>
-                              <Button>تحديث الحالة</Button>
-                            </div>
-                          </div>
-                        </DialogContent>
-                      </Dialog>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="gap-2"
+                        onClick={() => navigate(`/invoices/${invoice.id}`)}
+                      >
+                        <Eye className="w-4 h-4" />
+                        عرض
+                      </Button>
 
                       <Button
                         variant="outline"
